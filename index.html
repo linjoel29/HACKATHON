@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NeonCalc — Creative Calculator</title>
+  <meta name="description" content="A playful, futuristic web calculator with neon glassmorphism UI, sound feedback, confetti effects, and more." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Background canvases -->
+  <canvas id="particle-canvas"></canvas>
+  <canvas id="confetti-canvas"></canvas>
+
+  <!-- Top bar: toggles -->
+  <header id="top-bar">
+    <button id="theme-toggle" aria-label="Toggle dark / light mode" title="Toggle theme">
+      <span class="icon-sun">☀️</span>
+      <span class="icon-moon">🌙</span>
+    </button>
+    <button id="sound-toggle" aria-label="Toggle sound" title="Toggle sound">
+      <span class="icon-sound-on">🔊</span>
+      <span class="icon-sound-off">🔇</span>
+    </button>
+    <button id="history-toggle" aria-label="Show history" title="History">📜</button>
+  </header>
+
+  <!-- Motivational micro-text -->
+  <div id="motivation" aria-live="polite"></div>
+
+  <!-- Calculator wrapper -->
+  <main id="calculator">
+    <section id="display-area">
+      <div id="expression" aria-label="Current expression"></div>
+      <div id="result" aria-label="Result">0</div>
+    </section>
+
+    <section id="button-grid">
+      <!-- Row 1 -->
+      <button class="btn fn" data-value="AC" id="btn-ac">AC</button>
+      <button class="btn fn" data-value="backspace" id="btn-back">⌫</button>
+      <button class="btn op" data-value="%" id="btn-pct">%</button>
+      <button class="btn op" data-value="/" id="btn-div">÷</button>
+      <!-- Row 2 -->
+      <button class="btn num" data-value="7" id="btn-7">7</button>
+      <button class="btn num" data-value="8" id="btn-8">8</button>
+      <button class="btn num" data-value="9" id="btn-9">9</button>
+      <button class="btn op" data-value="*" id="btn-mul">×</button>
+      <!-- Row 3 -->
+      <button class="btn num" data-value="4" id="btn-4">4</button>
+      <button class="btn num" data-value="5" id="btn-5">5</button>
+      <button class="btn num" data-value="6" id="btn-6">6</button>
+      <button class="btn op" data-value="-" id="btn-sub">−</button>
+      <!-- Row 4 -->
+      <button class="btn num" data-value="1" id="btn-1">1</button>
+      <button class="btn num" data-value="2" id="btn-2">2</button>
+      <button class="btn num" data-value="3" id="btn-3">3</button>
+      <button class="btn op" data-value="+" id="btn-add">+</button>
+      <!-- Row 5 -->
+      <button class="btn num span-2" data-value="0" id="btn-0">0</button>
+      <button class="btn num" data-value="." id="btn-dot">.</button>
+      <button class="btn eq" data-value="=" id="btn-eq">=</button>
+    </section>
+  </main>
+
+  <!-- History panel -->
+  <aside id="history-panel" class="hidden">
+    <h2>History</h2>
+    <ul id="history-list"></ul>
+    <button id="history-clear" class="btn fn">Clear History</button>
+  </aside>
+
+  <script src="script.js"></script>
+</body>
+</html>
